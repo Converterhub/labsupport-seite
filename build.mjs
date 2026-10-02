@@ -49,8 +49,9 @@ function kopfdaten(quelle) {
 }
 
 function kopf(bereich) {
+  // Am Bildschirm nur der Name; im Handymenü dazu die Stichworte
   const punkte = NAVIGATION.map(
-    (p) => `<a href="${p.href}"${p.bereich === bereich ? ' aria-current="page"' : ""}>${p.text}</a>`
+    (p) => `<a href="${p.href}"${p.bereich === bereich ? ' aria-current="page"' : ""}><span class="navi__name">${esc(p.text)}</span><span class="navi__stichwort">${esc(p.stichwort)}</span></a>`
   ).join("");
   return `
 <header class="kopf" data-kopf>
@@ -62,6 +63,7 @@ function kopf(bereich) {
     <nav class="navi" id="navi" aria-label="Hauptnavigation">
       ${punkte}
       <a class="knopf knopf--klein" href="kontakt.html">Anfrage stellen</a>
+      <p class="navi__fuss"><a href="mailto:office@labsupport.at">office@labsupport.at</a><span>Österreichweit vor Ort · seit 2012</span></p>
     </nav>
     <button class="navi-schalter" type="button" aria-controls="navi" aria-expanded="false" data-navi-schalter>
       <span></span><span></span><span class="unsichtbar">Menü</span>

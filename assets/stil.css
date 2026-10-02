@@ -791,3 +791,29 @@ img[src*="/horiba-"] { --f: .58; }
   .uebersicht__punkt:nth-child(even) { border-right: 0; padding-left: 14px; }
   .uebersicht__stichwort { font-size: .78rem; }
 }
+
+/* ---------- Handymenü als Vollbild ----------
+   Deckt Bereichsleiste und Seite ganz ab; jeder Bereich mit seinen
+   Stichworten, unten Anfrage und Kontakt. */
+
+.navi__stichwort, .navi__fuss { display: none; }
+
+@media (max-width: 1180px) {
+  .navi {
+    inset: var(--kopf-hoehe) 0 0 0; z-index: 3;
+    height: calc(100dvh - var(--kopf-hoehe)); overflow-y: auto; overscroll-behavior: contain;
+    padding: 4px var(--rand) calc(28px + env(safe-area-inset-bottom));
+    border-bottom: 0; border-top: 1px solid var(--linie-dunkel);
+  }
+  .navi a:not(.knopf) { display: flex; flex-direction: column; gap: 3px; padding: 15px 0; }
+  .navi__name { font: 600 1.3rem/1.2 var(--titel); letter-spacing: -0.01em; color: var(--weiss); }
+  .navi__stichwort { display: block; font-size: .84rem; line-height: 1.4; color: var(--text-hell-2); }
+  .navi a[aria-current="page"] .navi__name { color: var(--akzent); }
+  .navi .knopf { margin-top: 28px; padding: 17px; font-size: 1rem; flex: none; }
+  .navi__fuss { display: flex; flex-direction: column; gap: 4px; margin: 22px 0 0; font-size: .88rem; color: var(--text-hell-2); }
+  .navi .navi__fuss a { display: inline; padding: 0; border: 0; font-size: .98rem; color: var(--weiss); }
+
+  .kopf--menue .bereichsleiste { visibility: hidden; }
+  body.menue-offen { overflow: hidden; }
+  body.menue-offen .handyleiste { transform: translateY(160%); }
+}

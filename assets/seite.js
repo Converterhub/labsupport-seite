@@ -16,17 +16,17 @@ function kopfPruefen() {
 kopfPruefen();
 window.addEventListener("scroll", kopfPruefen, { passive: true });
 
-schalter?.addEventListener("click", () => {
-  const offen = schalter.getAttribute("aria-expanded") === "true";
-  schalter.setAttribute("aria-expanded", String(!offen));
-  navi.classList.toggle("navi--offen", !offen);
-});
-navi?.addEventListener("click", (e) => {
-  if (e.target.closest("a")) {
-    schalter?.setAttribute("aria-expanded", "false");
-    navi.classList.remove("navi--offen");
-  }
-});
+// Handymenü: deckt den ganzen Bildschirm ab, die Seite dahinter steht still
+function menue(offen) {
+  schalter?.setAttribute("aria-expanded", String(offen));
+  navi?.classList.toggle("navi--offen", offen);
+  kopf?.classList.toggle("kopf--menue", offen);
+  document.body.classList.toggle("menue-offen", offen);
+}
+schalter?.addEventListener("click", () => menue(schalter.getAttribute("aria-expanded") !== "true"));
+navi?.addEventListener("click", (e) => { if (e.target.closest("a")) menue(false); });
+document.addEventListener("keydown", (e) => { if (e.key === "Escape") menue(false); });
+window.matchMedia("(min-width: 1181px)").addEventListener("change", (m) => { if (m.matches) menue(false); });
 
 // Einblenden beim Scrollen
 const zeigen = document.querySelectorAll("[data-zeige]");
