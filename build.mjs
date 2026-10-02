@@ -63,7 +63,7 @@ function kopf(bereich) {
     <nav class="navi" id="navi" aria-label="Hauptnavigation">
       ${punkte}
       <a class="knopf knopf--klein" href="kontakt.html">Anfrage stellen</a>
-      <p class="navi__fuss"><a href="mailto:office@labsupport.at">office@labsupport.at</a><span>Österreichweit vor Ort · seit 2012</span></p>
+      <p class="navi__fuss"><a href="mailto:office@labsupport.at">office@labsupport.at</a><span>Österreich &amp; Europa · seit 2012</span></p>
     </nav>
     <button class="navi-schalter" type="button" aria-controls="navi" aria-expanded="false" data-navi-schalter>
       <span></span><span></span><span class="unsichtbar">Menü</span>
@@ -84,7 +84,7 @@ const FUSS = `
         <span class="marke__name">Lab<b>Support</b></span>
       </a>
       <p>Technische Lösungen für Labor, Industrie &amp; Produktion.</p>
-      <p class="fuss__leitsatz">Seit 2012. Österreichweit. Persönlich.</p>
+      <p class="fuss__leitsatz">Seit 2012. Österreich &amp; Europa. Persönlich.</p>
     </div>
     <div>
       <h2 class="fuss__titel">Lösungen</h2>

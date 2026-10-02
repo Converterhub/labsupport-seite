@@ -78,6 +78,8 @@ sie labsupport.at wirklich ersetzt – sonst steht sie doppelt in Google.
 - Nie „LNI-Generatoren“ als Überschrift – LabSupport bietet Generatoren
   mehrerer Hersteller.
 - Weitere Partner gibt es derzeit nicht.
+- **Einsatzgebiet:** in ganz Österreich vor Ort (alle neun Bundesländer) **und
+  europaweit im Einsatz** – auch Service. Immer beides nennen, nicht nur eines.
 
 ## Inhalte – nichts erfinden
 
