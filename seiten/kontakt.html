@@ -1,0 +1,75 @@
+<!-- titel: Anfrage stellen | beschreibung: Sprechen Sie mit LabSupport – neue Systeme, bestehende Anlagen, GMP und Analytik. Österreichweit vor Ort. | bereich: kontakt -->
+
+<section class="seitenkopf dunkel raster-grund">
+  <div class="rahmen">
+    <nav class="pfad" aria-label="Pfad"><a href="index.html">Start</a><span>/</span><span>Anfrage</span></nav>
+    <div class="seitenkopf__raster">
+      <div>
+        <p class="kicker">Kontakt</p>
+        <h1>Sie suchen eine technische Lösung?</h1>
+        <p class="seitenkopf__unter">Sie beschreiben uns Ihre Anwendung – wir kümmern uns um die passende Lösung.</p>
+      </div>
+      <dl class="seitenkopf__seite kontaktblock">
+        <dt>E-Mail</dt>
+        <dd><a href="mailto:office@labsupport.at">office@labsupport.at</a></dd>
+        <dt>Firmensitz</dt>
+        <dd>Hauptstraße 132<br>3441 Baumgarten am Tullnerfeld</dd>
+        <dt>Einsatzgebiet</dt>
+        <dd>Österreichweit, alle 9 Bundesländer</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="abschnitt weiss">
+  <div class="rahmen zwei-spalten">
+    <div class="klebend">
+      <h2 class="block-titel">Ihre Anfrage</h2>
+      <p class="fliess" style="margin-top:16px"><span style="color:var(--text-2)">Egal, ob Sie ein neues System benötigen, eine bestehende Anlage Probleme macht oder Unterstützung bei GMP und Analytik suchen: Sprechen Sie mit uns.</span></p>
+    </div>
+    <form class="formular" data-anfrage>
+      <div class="feld feld--voll">
+        <label for="thema">Worum geht es?</label>
+        <select id="thema" name="thema">
+          <option>Allgemeine Anfrage</option>
+          <option>GMP &amp; Analytik</option>
+          <option>Luftaufbereitung</option>
+          <option>Gasgeneratoren</option>
+          <option>Stickstoff</option>
+          <option>Wasserstoff</option>
+          <option>Synthetische Luft</option>
+          <option>Weinbau</option>
+          <option>SMC Ionisation</option>
+          <option>Durchlaufkühler</option>
+          <option>Hexid</option>
+          <option>Service &amp; Wartung</option>
+          <option>Kostenlose Erstdiagnose</option>
+        </select>
+      </div>
+      <div class="feld">
+        <label for="name">Name</label>
+        <input id="name" name="name" autocomplete="name" required>
+      </div>
+      <div class="feld">
+        <label for="firma">Unternehmen</label>
+        <input id="firma" name="firma" autocomplete="organization">
+      </div>
+      <div class="feld">
+        <label for="mail">E-Mail</label>
+        <input id="mail" name="mail" type="email" autocomplete="email" required>
+      </div>
+      <div class="feld">
+        <label for="telefon">Telefon <span style="font-weight:400;color:var(--text-2)">(optional)</span></label>
+        <input id="telefon" name="telefon" type="tel" autocomplete="tel">
+      </div>
+      <div class="feld feld--voll">
+        <label for="nachricht">Ihre Anwendung oder Ihr Anliegen</label>
+        <textarea id="nachricht" name="nachricht" required placeholder="z. B. Anlage, Hersteller, Fehlerbild oder benötigte Reinheit, Durchfluss und Druck"></textarea>
+      </div>
+      <div class="formular__fuss">
+        <p>Mit dem Absenden öffnet sich Ihr E-Mail-Programm mit der vorbereiteten Nachricht an office@labsupport.at.</p>
+        <button class="knopf" type="submit">Anfrage senden <span class="pfeil" aria-hidden="true">→</span></button>
+      </div>
+    </form>
+  </div>
+</section>
