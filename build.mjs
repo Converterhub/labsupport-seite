@@ -111,7 +111,7 @@ const FUSS = `
       <ul>
         <li><a href="impressum.html">Impressum</a></li>
         <li><a href="https://labsupport.at/wp-content/uploads/2025/03/AGBsLabsupportDE_03112022.pdf">AGB</a></li>
-        <li><a href="https://labsupport.at/wp-content/uploads/2025/03/DatenschutzerklaerungDE.pdf">Datenschutz</a></li>
+        <li><a href="datenschutz.html">Datenschutz</a></li>
       </ul>
     </div>
   </div>
@@ -142,9 +142,8 @@ function seite({ titel, beschreibung, bereich }, inhalt) {
 <meta name="theme-color" content="#120b33">
 <meta name="robots" content="noindex, nofollow">
 <link rel="icon" href="assets/img/logo.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preload" href="assets/schriften/inter-latin-6.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/schriften/schriften.css">
 <link rel="stylesheet" href="assets/stil.css">
 <script src="assets/seite.js" defer></script>
 </head>

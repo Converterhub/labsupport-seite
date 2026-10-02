@@ -81,6 +81,15 @@ sie labsupport.at wirklich ersetzt – sonst steht sie doppelt in Google.
 - **Einsatzgebiet:** in ganz Österreich vor Ort (alle neun Bundesländer) **und
   europaweit im Einsatz** – auch Service. Immer beides nennen, nicht nur eines.
 
+## Datenschutz
+
+Die Seite setzt **keine Cookies**, speichert nichts im Browser und lädt
+**nichts von fremden Servern** (Schriften liegen in `assets/schriften/`).
+Deshalb braucht sie keinen Cookie-Banner. Wer etwas Fremdes einbaut –
+Google Analytics, Google Maps, YouTube, externe Schriften, Chat-Widgets –,
+braucht vorher eine Einwilligung der Besucher und muss `seiten/datenschutz.html`
+anpassen. Im Zweifel: nicht einbauen, erst mit David klären.
+
 ## Inhalte – nichts erfinden
 
 Die Texte stammen von LabSupport. Keine Zahlen, Zertifikate, Kunden oder
