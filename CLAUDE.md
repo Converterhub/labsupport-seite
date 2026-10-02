@@ -23,16 +23,17 @@ node server.mjs    # Vorschau auf http://localhost:4321 (dient dist/ aus)
 
 ## Veröffentlichen
 
-**Jeder Push auf `main` geht automatisch live** (GitHub Action
-`.github/workflows/veroeffentlichen.yml`, rund eine Minute). Den Zugang zu
-Vercel hält GitHub verschlüsselt als Secret; man braucht kein eigenes
-Vercel-Konto. Deshalb:
+**Derzeit veröffentlicht nur David** (Vercel-Projekt `labsupport-seite` in
+seinem Konto). Änderungen also bauen, ansehen, committen und pushen – live
+geht es, wenn David seinem Claude sagt „stell LabSupport live“:
 
-1. Vor dem Push bauen und die Seite ansehen – am Bildschirm **und** in
-   Handybreite (390 px).
-2. Nach dem Push im Reiter *Actions* nachsehen, ob der Lauf grün ist.
-3. Auf der Live-Seite ein Merkmal der Änderung suchen, nicht nur den
-   Statuscode – 200 liefert auch die alte Fassung.
+```bash
+node build.mjs && cd dist && vercel deploy --prod --yes --archive=tgz --project labsupport-seite
+```
+
+Vor dem Push immer bauen und die Seite ansehen – am Bildschirm **und** in
+Handybreite (390 px). Nach einem Deploy auf der Live-Seite ein Merkmal der
+Änderung suchen, nicht nur den Statuscode – 200 liefert auch die alte Fassung.
 
 Die Seite ist **noch gesperrt für Suchmaschinen** (`robots.txt` und
 `noindex`, beides in `build.mjs`, dazu `vercel.json`). Erst entfernen, wenn
