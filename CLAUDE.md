@@ -3,7 +3,7 @@
 Neue Website der **Labsupport GmbH & Co KG** (Baumgarten am Tullnerfeld), als
 Ersatz für labsupport.at. Statisches HTML, kein Framework, keine Abhängigkeit.
 
-**Live (Vorschau):** https://labsupport-seite.vercel.app
+**Live (Vorschau):** https://converterhub.github.io/labsupport-seite/
 
 ## Arbeiten an der Seite
 
@@ -23,20 +23,29 @@ node server.mjs    # Vorschau auf http://localhost:4321 (dient dist/ aus)
 
 ## Veröffentlichen
 
-**Derzeit veröffentlicht nur David** (Vercel-Projekt `labsupport-seite` in
-seinem Konto). Änderungen also bauen, ansehen, committen und pushen – live
-geht es, wenn David seinem Claude sagt „stell LabSupport live“:
+**Jeder Push auf `main` geht automatisch live** – GitHub baut die Seite und
+stellt sie auf GitHub Pages (Ablauf `.github/workflows/veroeffentlichen.yml`,
+rund eine Minute). Es gibt kein zweites Konto und keinen Schlüssel. Deshalb:
 
-```bash
-node build.mjs && cd dist && vercel deploy --prod --yes --archive=tgz --project labsupport-seite
-```
+1. **Vor dem Push** bauen und die Seite ansehen – am Bildschirm **und** in
+   Handybreite (390 px). Was gepusht ist, ist öffentlich.
+2. **Nach dem Push** mit `gh run watch` (oder im Reiter *Actions*) warten, bis
+   der Lauf grün ist.
+3. **Auf der Live-Seite** ein Merkmal der Änderung suchen, nicht nur den
+   Statuscode – 200 liefert auch die alte Fassung.
 
-Vor dem Push immer bauen und die Seite ansehen – am Bildschirm **und** in
-Handybreite (390 px). Nach einem Deploy auf der Live-Seite ein Merkmal der
-Änderung suchen, nicht nur den Statuscode – 200 liefert auch die alte Fassung.
+Arbeiten mehrere gleichzeitig: vor dem Arbeiten `git pull`, nur eigene
+Dateien committen, nie `--force` auf `main`.
 
-Die Seite ist **noch gesperrt für Suchmaschinen** (`robots.txt` und
-`noindex`, beides in `build.mjs`, dazu `vercel.json`). Erst entfernen, wenn
+Die Seite liegt unter einem Unterpfad (`/labsupport-seite/`). Darum **alle
+Verweise relativ** (`assets/…`, `kontakt.html`), nie mit führendem `/`.
+
+Das Repo ist **öffentlich** – nur hineinschreiben, was auch auf der Website
+stehen dürfte. Keine Zugangsdaten, keine internen Preise, keine privaten
+Adressen.
+
+Die Seite ist **noch gesperrt für Suchmaschinen** (`noindex` im Seitenkopf,
+dazu `robots.txt`, beides in `build.mjs`). Erst entfernen, wenn
 sie labsupport.at wirklich ersetzt – sonst steht sie doppelt in Google.
 
 ## Gestaltung – was festgelegt ist
