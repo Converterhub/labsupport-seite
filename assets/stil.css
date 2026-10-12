@@ -700,6 +700,12 @@ sub { font-size: 0.7em; vertical-align: -0.15em; line-height: 0; }
 .kachel--service:hover::before { transform: scale(1.12); }
 .kachel--service h3 { font-size: clamp(1.8rem, 3vw, 2.5rem); }
 .kachel--service .kachel__betont { font-size: clamp(1.15rem, 1.8vw, 1.4rem); }
+.kachel__vorort {
+  display: inline-flex; align-items: center; gap: 10px; align-self: flex-start;
+  margin-top: 16px !important; padding: 8px 14px 8px 10px; border: 1px solid var(--akzent); border-radius: 999px;
+  font-weight: 600; font-size: .93rem; line-height: 1.35; color: var(--weiss) !important;
+}
+.kachel__vorort svg { flex: none; color: var(--akzent); }
 .kachel--dunkel .kachel__daten, .kachel--dunkel .kachel__daten div { border-color: var(--linie-dunkel); }
 .kachel--dunkel .kachel__daten dt { color: var(--akzent); }
 .kachel--dunkel .kachel__daten dd { color: var(--text-hell); }

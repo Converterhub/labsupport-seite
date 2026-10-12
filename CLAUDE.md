@@ -69,14 +69,21 @@ sie labsupport.at wirklich ersetzt – sonst steht sie doppelt in Google.
 | Bereich | Partner |
 |---|---|
 | GMP & Analytik | Agilent (Authorized Service Provider), Horiba |
-| Gasgeneratoren | **herstellerübergreifend**, u. a. LNI Swiss Gas und SMC |
+| Gasgeneratoren | **herstellerübergreifend** – aber keine Hersteller nennen, siehe unten |
 | Luftaufbereitung | SMC |
 | Ionisation | SMC |
 | Kühlung | ATC (Durchlaufkühler), Hexid Kühlflüssigkeit – Vertrieb europaweit |
 
 - Die Gasgeneratoren sollen auf der Startseite **herausstechen**.
-- Nie „LNI-Generatoren“ als Überschrift – LabSupport bietet Generatoren
-  mehrerer Hersteller.
+- **Partner stehen gesammelt im Partnerblock der Startseite**, nicht bei den
+  Produkten (Kacheln, Menü, Fußzeile). SMC und LNI Swiss Gas dort als
+  **Vertriebspartner**, gleich unter dem Auftakt.
+- **Bei den Gasgeneratoren nie einen Hersteller nennen** – weder Namen noch
+  Logos, auch nicht in der Beschreibung im Seitenkopf.
+- „Herstellerübergreifend“ bei den Generatoren ist erwünscht.
+- **Service steht überall an erster Stelle** (Menü, Übersicht, Kacheln) und
+  heißt **vor Ort** – man soll sofort sehen, dass LabSupport zu den Kunden
+  kommt.
 - Weitere Partner gibt es derzeit nicht.
 - **Einsatzgebiet:** in ganz Österreich vor Ort (alle neun Bundesländer) **und
   europaweit im Einsatz** – auch Service. Immer beides nennen, nicht nur eines.
