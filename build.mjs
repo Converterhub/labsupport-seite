@@ -18,7 +18,7 @@ const ZIEL = join(WURZEL, "dist");
 // die Partner stehen gesammelt auf der Startseite.
 const NAVIGATION = [
   { href: "service.html", text: "Service", bereich: "service", stichwort: "Wartung & Betreuung vor Ort" },
-  { href: "gmp-analytik.html", text: "GMP & Analytik", bereich: "gmp", stichwort: "Qualifizierung · CSV · Service" },
+  { href: "gmp-analytik.html", text: "GMP & Analytik", bereich: "gmp", stichwort: "Qualifizierung · CSV · Beratung" },
   { href: "gasgeneratoren.html", text: "Gasgeneratoren", bereich: "gase", stichwort: "N₂ · H₂ · synthetische Luft" },
   { href: "luftaufbereitung.html", text: "Luftaufbereitung", bereich: "luft", stichwort: "Filter · Trockner · Kondensat" },
   { href: "smc-ionisation.html", text: "Ionisation", bereich: "smc", stichwort: "Ionisatoren · Stäbe · Düsen" },

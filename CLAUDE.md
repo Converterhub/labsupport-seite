@@ -83,7 +83,10 @@ sie labsupport.at wirklich ersetzt – sonst steht sie doppelt in Google.
 - „Herstellerübergreifend“ bei den Generatoren ist erwünscht.
 - **Service steht überall an erster Stelle** (Menü, Übersicht, Kacheln) und
   heißt **vor Ort** – man soll sofort sehen, dass LabSupport zu den Kunden
-  kommt.
+  kommt. Wartung, Reparatur und Kalibrierung **aller** Geräte, auch der
+  Analysengeräte, gehören auf die Service-Seite.
+- **GMP & Analytik** heißt Qualifizierung (DQ/IQ/OQ/PQ), CSV und Beratung –
+  der Gerätedienst steht dort nur als Verweis auf den Service.
 - Weitere Partner gibt es derzeit nicht.
 - **Einsatzgebiet:** in ganz Österreich vor Ort (alle neun Bundesländer) **und
   europaweit im Einsatz** – auch Service. Immer beides nennen, nicht nur eines.
