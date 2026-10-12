@@ -690,6 +690,29 @@ sub { font-size: 0.7em; vertical-align: -0.15em; line-height: 0; }
 .kachel--dunkel .kachel__fuss { color: var(--akzent); border-color: var(--linie-dunkel); margin-top: auto; }
 .kachel--dunkel:hover { border-color: var(--indigo-2); }
 
+/* Service als erste, große Kachel: dunkel, ohne Bild, mit Leistungsliste */
+.kachel--service { isolation: isolate; padding: 0; }
+.kachel--service::before {
+  content: ""; position: absolute; inset: auto -25% -45% auto; width: 75%; aspect-ratio: 1; z-index: -1;
+  background: radial-gradient(circle, rgba(74, 55, 201, .5), transparent 65%);
+  transition: transform .5s;
+}
+.kachel--service:hover::before { transform: scale(1.12); }
+.kachel--service h3 { font-size: clamp(1.8rem, 3vw, 2.5rem); }
+.kachel--service .kachel__betont { font-size: clamp(1.15rem, 1.8vw, 1.4rem); }
+.kachel--dunkel .kachel__daten, .kachel--dunkel .kachel__daten div { border-color: var(--linie-dunkel); }
+.kachel--dunkel .kachel__daten dt { color: var(--akzent); }
+.kachel--dunkel .kachel__daten dd { color: var(--text-hell); }
+.kachel__hinweis { margin-top: auto !important; padding-top: 28px; }
+.kachel__hinweis b { color: var(--weiss); font-weight: 600; }
+.kachel--service .kachel__fuss { margin-top: 24px; }
+
+/* Ein Satz unter den Partnerlogos: die Kunden zuerst */
+.partner__kunden {
+  margin-top: clamp(28px, 4vw, 44px); padding-left: 20px; border-left: 3px solid var(--indigo);
+  font: 500 clamp(1.15rem, 1.8vw, 1.4rem)/1.4 var(--titel); letter-spacing: -0.01em; color: var(--indigo);
+}
+
 .partner { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); border-top: 1px solid var(--linie); border-left: 1px solid var(--linie); }
 .partner__eintrag {
   display: flex; flex-direction: column; align-items: center; justify-content: space-between; gap: 18px; text-align: center;

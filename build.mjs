@@ -14,13 +14,15 @@ const ZIEL = join(WURZEL, "dist");
 
 // Die sechs Bereiche: Hauptmenü, Handyleiste unter dem Kopf und die
 // Übersicht im Auftakt der Startseite ({{bereiche}}) kommen alle von hier.
+// Service steht vorne. Herstellernamen gehören nicht in die Stichworte –
+// die Partner stehen gesammelt auf der Startseite.
 const NAVIGATION = [
+  { href: "service.html", text: "Service", bereich: "service", stichwort: "Wartung · Diagnose · Ersatzteile" },
   { href: "gmp-analytik.html", text: "GMP & Analytik", bereich: "gmp", stichwort: "Qualifizierung · CSV · Service" },
   { href: "gasgeneratoren.html", text: "Gasgeneratoren", bereich: "gase", stichwort: "N₂ · H₂ · synthetische Luft" },
   { href: "luftaufbereitung.html", text: "Luftaufbereitung", bereich: "luft", stichwort: "Filter · Trockner · Kondensat" },
-  { href: "smc-ionisation.html", text: "Ionisation", bereich: "smc", stichwort: "SMC Ionisatoren & Stäbe" },
-  { href: "kuehlung.html", text: "Kühlung", bereich: "kuehlung", stichwort: "ATC Kühler · Hexid" },
-  { href: "service.html", text: "Service", bereich: "service", stichwort: "Wartung · Diagnose · Ersatzteile" },
+  { href: "smc-ionisation.html", text: "Ionisation", bereich: "smc", stichwort: "Ionisatoren · Stäbe · Düsen" },
+  { href: "kuehlung.html", text: "Kühlung", bereich: "kuehlung", stichwort: "Durchlaufkühler · Kühlflüssigkeit" },
 ];
 
 const esc = (t) => t.replace(/&/g, "&amp;");
@@ -89,12 +91,12 @@ const FUSS = `
     <div>
       <h2 class="fuss__titel">Lösungen</h2>
       <ul>
+        <li><a href="service.html">Service &amp; Wartung</a></li>
         <li><a href="gmp-analytik.html">GMP &amp; Analytik</a></li>
         <li><a href="gasgeneratoren.html">Gasgeneratoren</a></li>
         <li><a href="luftaufbereitung.html">Luftaufbereitung</a></li>
-        <li><a href="smc-ionisation.html">SMC Ionisation</a></li>
-        <li><a href="kuehlung.html">Durchlaufkühler &amp; Hexid</a></li>
-        <li><a href="service.html">Service &amp; Wartung</a></li>
+        <li><a href="smc-ionisation.html">Ionisation</a></li>
+        <li><a href="kuehlung.html">Durchlaufkühler &amp; Kühlflüssigkeit</a></li>
       </ul>
     </div>
     <div>
@@ -117,7 +119,7 @@ const FUSS = `
   </div>
   <div class="rahmen fuss__leiste">
     <span>© ${new Date().getFullYear()} Labsupport GmbH &amp; Co KG</span>
-    <span class="mono">GMP &amp; Analytik · Gasgeneratoren · Luftaufbereitung · Ionisation · Kühlung · Service</span>
+    <span class="mono">Service · GMP &amp; Analytik · Gasgeneratoren · Luftaufbereitung · Ionisation · Kühlung</span>
   </div>
 </footer>`;
 
