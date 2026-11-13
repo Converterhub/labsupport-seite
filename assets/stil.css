@@ -88,10 +88,29 @@ sub { font-size: 0.7em; vertical-align: -0.15em; line-height: 0; }
 .navi a:not(.knopf):hover { color: var(--weiss); background: rgba(255, 255, 255, 0.06); }
 .navi a[aria-current="page"] { color: var(--weiss); box-shadow: inset 0 -2px 0 var(--akzent); border-radius: 0; }
 .navi .knopf { margin-left: 12px; }
+.navi { margin-left: auto; }
+.navi a { white-space: nowrap; }
+/* Knapp über dem Handymenü wird es eng: Menüpunkte etwas dichter */
+@media (min-width: 1181px) and (max-width: 1360px) {
+  .kopf__innen { gap: 14px; }
+  .navi a:not(.knopf) { padding-inline: 7px; font-size: 0.88rem; }
+  .navi .knopf { margin-left: 6px; padding-inline: 14px; }
+}
+
+/* Sprachumschalter: immer sichtbar, auf dem Handy neben dem Menüknopf */
+.sprache { display: flex; flex: none; border: 1px solid var(--linie-dunkel); border-radius: var(--radius); overflow: hidden; }
+.sprache a {
+  font: 500 0.78rem/1 var(--mono); letter-spacing: .06em; text-decoration: none;
+  color: var(--text-hell-2); padding: 8px 10px; transition: color .2s, background .2s;
+}
+.sprache a:hover { color: var(--weiss); background: rgba(255, 255, 255, 0.06); }
+.sprache a[aria-current] { color: var(--tinte); background: var(--weiss); }
 
 .navi-schalter { display: none; }
 
 @media (max-width: 1180px) {
+  .sprache { margin-left: auto; }
+  .kopf__innen { gap: 12px; }
   .navi-schalter {
     display: grid; place-content: center; gap: 6px;
     width: 44px; height: 44px; background: none; border: 1px solid var(--linie-dunkel); border-radius: var(--radius); cursor: pointer;

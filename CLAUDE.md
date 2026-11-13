@@ -68,7 +68,7 @@ sie labsupport.at wirklich ersetzt – sonst steht sie doppelt in Google.
 
 | Bereich | Partner |
 |---|---|
-| GMP & Analytik | Agilent (Authorized Service Provider), Horiba |
+| Qualifizierung & CSV (früher GMP & Analytik) | Agilent (Authorized Service Provider), Horiba |
 | Gasgeneratoren | **herstellerübergreifend** – aber keine Hersteller nennen, siehe unten |
 | Luftaufbereitung | SMC |
 | Ionisation | SMC |
@@ -85,8 +85,8 @@ sie labsupport.at wirklich ersetzt – sonst steht sie doppelt in Google.
   heißt **vor Ort** – man soll sofort sehen, dass LabSupport zu den Kunden
   kommt. Wartung, Reparatur und Kalibrierung **aller** Geräte, auch der
   Analysengeräte, gehören auf die Service-Seite.
-- **GMP & Analytik** heißt Qualifizierung (DQ/IQ/OQ/PQ), CSV und Beratung –
-  der Gerätedienst steht dort nur als Verweis auf den Service.
+- **Qualifizierung & CSV** (Datei `gmp-analytik.html`) umfasst Qualifizierung (DQ/IQ/OQ/PQ), CSV und
+  Beratung. Wartung, Reparatur und Kalibrierung der Analysengeräte stehen auf der Service-Seite („Service und Reparatur“), nicht dort.
 - Weitere Partner gibt es derzeit nicht.
 - **Einsatzgebiet:** in ganz Österreich vor Ort (alle neun Bundesländer) **und
   europaweit im Einsatz** – auch Service. Immer beides nennen, nicht nur eines.
@@ -108,8 +108,13 @@ technischen Daten hinzudichten. Was ausdrücklich noch offen ist:
 - Keine Telefonnummer auf der Seite – auf der alten Seite steht keine.
 - Das Anfrageformular öffnet das Mailprogramm (`mailto:` an
   office@labsupport.at), es verschickt nichts selbst.
-- AGB und Datenschutz verlinken auf die PDFs der alten Seite.
-- Es gibt keine englische Fassung.
+- Die AGB stehen als eigene Seite (`seiten/agb.html`, Wortlaut aus dem PDF vom 3. 11. 2022,
+  das dort weiter verlinkt ist). Am Wortlaut nichts ändern ohne Freigabe.
+- Die englische Fassung liegt in `seiten/en/` (gleiche Dateinamen, landet in
+  `dist/en/`). Jede Änderung an einer deutschen Seite auch dort nachziehen.
+  Kopf-, Menü- und Fußtexte beider Sprachen stehen in `TEXTE` und
+  `NAVIGATION` in `build.mjs`. Die englischen AGB sind eine Übersetzung;
+  maßgeblich ist die deutsche Fassung (Hinweis auf der Seite).
 - Das Auftaktfoto ist ein Symbolbild der alten Seite; ein echtes Foto vom
   Team bei der Arbeit wäre besser.
 

@@ -1,0 +1,75 @@
+<!-- titel: Send enquiry | beschreibung: Talk to LabSupport – new systems, existing installations, GMP and analytics. On site throughout Austria, active across Europe. | bereich: kontakt -->
+
+<section class="seitenkopf dunkel raster-grund">
+  <div class="rahmen">
+    <nav class="pfad" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>Enquiry</span></nav>
+    <div class="seitenkopf__raster">
+      <div>
+        <p class="kicker">Contact</p>
+        <h1>Looking for a technical solution?</h1>
+        <p class="seitenkopf__unter">You describe your application to us – we take care of finding the right solution.</p>
+      </div>
+      <dl class="seitenkopf__seite kontaktblock">
+        <dt>Email</dt>
+        <dd><a href="mailto:office@labsupport.at">office@labsupport.at</a></dd>
+        <dt>Registered office</dt>
+        <dd>Hauptstraße 132<br>3441 Baumgarten am Tullnerfeld</dd>
+        <dt>Service area</dt>
+        <dd>Throughout Austria, all 9 federal states<br>and across Europe</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="abschnitt weiss">
+  <div class="rahmen zwei-spalten">
+    <div class="klebend">
+      <h2 class="block-titel">Your enquiry</h2>
+      <p class="fliess" style="margin-top:16px"><span style="color:var(--text-2)">Whether you need a new system, an existing installation is causing problems or you are looking for support with GMP and analytics: talk to us.</span></p>
+    </div>
+    <form class="formular" data-anfrage>
+      <div class="feld feld--voll">
+        <label for="thema">What is it about?</label>
+        <select id="thema" name="thema">
+          <option value="Allgemeine Anfrage">General enquiry</option>
+          <option value="GMP &amp; Analytik">Qualification &amp; CSV</option>
+          <option value="Luftaufbereitung">Compressed Air Treatment</option>
+          <option value="Gasgeneratoren">Gas Generators</option>
+          <option value="Stickstoff">Nitrogen</option>
+          <option value="Wasserstoff">Hydrogen</option>
+          <option value="Synthetische Luft">Synthetic air</option>
+          <option value="Weinbau">Viticulture</option>
+          <option value="SMC Ionisation">SMC Ionisation</option>
+          <option value="Durchlaufkühler">Chillers</option>
+          <option value="Hexid">Hexid</option>
+          <option value="Service &amp; Wartung">Service &amp; repair</option>
+          <option value="Kostenlose Erstdiagnose">Free initial diagnosis</option>
+        </select>
+      </div>
+      <div class="feld">
+        <label for="name">Name</label>
+        <input id="name" name="name" autocomplete="name" required>
+      </div>
+      <div class="feld">
+        <label for="firma">Company</label>
+        <input id="firma" name="firma" autocomplete="organization">
+      </div>
+      <div class="feld">
+        <label for="mail">Email</label>
+        <input id="mail" name="mail" type="email" autocomplete="email" required>
+      </div>
+      <div class="feld">
+        <label for="telefon">Phone <span style="font-weight:400;color:var(--text-2)">(optional)</span></label>
+        <input id="telefon" name="telefon" type="tel" autocomplete="tel">
+      </div>
+      <div class="feld feld--voll">
+        <label for="nachricht">Your application or request</label>
+        <textarea id="nachricht" name="nachricht" required placeholder="e.g. installation, manufacturer, fault symptoms or required purity, flow rate and pressure"></textarea>
+      </div>
+      <div class="formular__fuss">
+        <p>When you submit, your email program opens with a prepared message to office@labsupport.at.</p>
+        <button class="knopf" type="submit">Send enquiry <span class="pfeil" aria-hidden="true">→</span></button>
+      </div>
+    </form>
+  </div>
+</section>
