@@ -557,6 +557,8 @@ sub { font-size: 0.7em; vertical-align: -0.15em; line-height: 0; }
 .fuss address a { color: var(--weiss); }
 .fuss__leiste { display: flex; flex-wrap: wrap; gap: 12px 32px; justify-content: space-between; margin-top: 64px; padding-block: 24px; border-top: 1px solid var(--linie-dunkel); font-size: 0.85rem; }
 .fuss__leiste .mono { font-size: 0.72rem; }
+.fuss__hinweis { margin-left: 16px; padding-left: 16px; border-left: 1px solid var(--linie-dunkel); color: var(--text-hell-2); text-decoration: none; }
+.fuss__hinweis:hover { color: var(--weiss); }
 @media (max-width: 860px) { .fuss__raster { grid-template-columns: 1fr 1fr; } .fuss__marke { grid-column: 1 / -1; } }
 @media (max-width: 480px) { .fuss__raster { grid-template-columns: 1fr; } }
 

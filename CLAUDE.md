@@ -3,7 +3,8 @@
 Neue Website der **Labsupport GmbH & Co KG** (Baumgarten am Tullnerfeld), als
 Ersatz für labsupport.at. Statisches HTML, kein Framework, keine Abhängigkeit.
 
-**Live (Vorschau):** https://converterhub.github.io/labsupport-seite/
+**Live:** https://www.labsupport.at/ (seit 13. 11. 2026, Upload per FTP von Hand)
+**Vorschau:** https://converterhub.github.io/labsupport-seite/ (jeder Push auf `main`)
 
 ## Arbeiten an der Seite
 
@@ -44,9 +45,30 @@ Das Repo ist **öffentlich** – nur hineinschreiben, was auch auf der Website
 stehen dürfte. Keine Zugangsdaten, keine internen Preise, keine privaten
 Adressen.
 
-Die Seite ist **noch gesperrt für Suchmaschinen** (`noindex` im Seitenkopf,
-dazu `robots.txt`, beides in `build.mjs`). Erst entfernen, wenn
-sie labsupport.at wirklich ersetzt – sonst steht sie doppelt in Google.
+Die **GitHub-Vorschau bleibt gesperrt für Suchmaschinen** (`noindex` im
+Seitenkopf, dazu `robots.txt`, beides in `build.mjs`) – sonst stünde sie
+doppelt neben labsupport.at in Google.
+
+### www.labsupport.at
+
+```bash
+node build.mjs --live   # indexierbar, mit web.config, Datenschutz ohne GitHub
+node hochladen.mjs      # FTPS nach httpdocs, überschreibt, löscht nichts
+```
+
+- Server ist **IIS über Plesk** (Windows). HTTPS-Umleitung ist in Plesk
+  eingestellt, nicht in der `web.config`.
+- `web.config`: **keine zwei Bindestriche in Kommentaren** – ungültiges XML,
+  IIS antwortet dann für jede Datei mit 500. Kein `<rewrite>` ohne vorher zu
+  prüfen, ob das Modul da ist.
+- FTP-Zugang in `%USERPROFILE%\.labsupport-ftp` (nie ins Repo). FTP läuft auf
+  einer anderen IP als der Servername, das Zertifikat lautet aber auf den Namen – deshalb
+  `# ip` in der Datei.
+- Danach live prüfen: Seiten, `assets/stil.css`, die `.woff2`-Schrift und die
+  englische Fassung müssen 200 liefern.
+- Der Abschnitt „Hosting“ im Datenschutz kommt aus `HOSTING` in `build.mjs`
+  (Platzhalter `{{hosting}}`). Den Hoster erst namentlich nennen, wenn Name
+  und Anschrift bestätigt sind.
 
 ## Gestaltung – was festgelegt ist
 

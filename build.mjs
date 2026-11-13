@@ -1,7 +1,8 @@
 // Baut die statische Seite: jede Datei in seiten/ bekommt Kopf, Navigation
 // und Fußzeile und landet fertig in dist/. Kein Framework, keine Abhängigkeit.
 //
-//   node build.mjs
+//   node build.mjs          → Vorschau für GitHub Pages (gesperrt für Suchmaschinen)
+//   node build.mjs --live   → für www.labsupport.at (indexierbar, mit web.config)
 //
 // Kopf jeder Seitendatei, erste Zeile:
 //   <!-- titel: … | beschreibung: … | bereich: … -->
@@ -15,6 +16,25 @@ import { join } from "node:path";
 
 const WURZEL = import.meta.dirname;
 const ZIEL = join(WURZEL, "dist");
+const LIVE = process.argv.includes("--live");
+
+// Abschnitt „Hosting“ der Datenschutzerklärung ({{hosting}}): hängt davon ab,
+// wo die Seite liegt. Den Hoster von labsupport.at erst namentlich nennen,
+// wenn Name und Anschrift bestätigt sind.
+const HOSTING = {
+  vorschau: {
+    de: `<p>Diese Website wird über GitHub Pages bereitgestellt, einen Dienst der GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA. Beim Aufruf der Seite verarbeitet GitHub technisch notwendige Daten, insbesondere Ihre IP-Adresse, Datum und Uhrzeit des Zugriffs, die aufgerufene Seite sowie Angaben zu Browser und Betriebssystem. Diese Daten dienen ausschließlich der sicheren und stabilen Auslieferung der Website.</p>
+      <p>Rechtsgrundlage ist unser berechtigtes Interesse an einem sicheren und funktionsfähigen Webauftritt (Art. 6 Abs. 1 lit. f DSGVO). Dabei kann es zu einer Übermittlung in die USA kommen. Diese erfolgt auf Grundlage des EU-US Data Privacy Framework bzw. der Standardvertragsklauseln der EU-Kommission. Näheres in der <a href="https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener">Datenschutzerklärung von GitHub</a>.</p>`,
+    en: `<p>This website is provided via GitHub Pages, a service of GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA. When you access the site, GitHub processes technically necessary data, in particular your IP address, the date and time of access, the page accessed and information about your browser and operating system. This data is used solely for the secure and stable delivery of the website.</p>
+      <p>The legal basis is our legitimate interest in a secure and functional web presence (Art. 6(1)(f) GDPR). This may involve a transfer of data to the USA. Such transfers take place on the basis of the EU-US Data Privacy Framework or the standard contractual clauses of the European Commission. For further details, see the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener">GitHub privacy statement</a>.</p>`,
+  },
+  live: {
+    de: `<p>Diese Website wird auf dem Webserver eines externen Hosting-Dienstleisters betrieben. Beim Aufruf der Seite verarbeitet der Server technisch notwendige Daten, insbesondere Ihre IP-Adresse, Datum und Uhrzeit des Zugriffs, die aufgerufene Seite sowie Angaben zu Browser und Betriebssystem. Diese Daten dienen ausschließlich der sicheren und stabilen Auslieferung der Website.</p>
+      <p>Rechtsgrundlage ist unser berechtigtes Interesse an einem sicheren und funktionsfähigen Webauftritt (Art. 6 Abs. 1 lit. f DSGVO).</p>`,
+    en: `<p>This website is operated on the web server of an external hosting provider. When you access the site, the server processes technically necessary data, in particular your IP address, the date and time of access, the page accessed and information about your browser and operating system. This data is used solely for the secure and stable delivery of the website.</p>
+      <p>The legal basis is our legitimate interest in a secure and functional web presence (Art. 6(1)(f) GDPR).</p>`,
+  },
+};
 
 // Die sechs Bereiche: Hauptmenü, Handyleiste unter dem Kopf und die
 // Übersicht im Auftakt der Startseite ({{bereiche}}) kommen alle von hier.
@@ -64,6 +84,7 @@ const TEXTE = {
     impressum: "Impressum",
     agb: "AGB",
     datenschutz: "Datenschutz",
+    ohneCookies: "Keine Cookies · kein Tracking",
     leiste: "Service und Reparatur · Qualifizierung &amp; CSV · Gasgeneratoren · Luftaufbereitung · Ionisation · Kühlung",
     mailLabel: "E-Mail an office@labsupport.at",
   },
@@ -88,6 +109,7 @@ const TEXTE = {
     impressum: "Legal notice",
     agb: "Terms and conditions",
     datenschutz: "Privacy policy",
+    ohneCookies: "No cookies · no tracking",
     leiste: "Service &amp; repair · Qualification &amp; CSV · Gas generators · Compressed air · Ionisation · Cooling",
     mailLabel: "Email office@labsupport.at",
   },
@@ -200,7 +222,7 @@ ${NAVIGATION.map((p, i) => `        <li><a href="${p.href}">${t.fussLoesungen[i]
     </div>
   </div>
   <div class="rahmen fuss__leiste">
-    <span>© ${new Date().getFullYear()} Labsupport GmbH &amp; Co KG</span>
+    <span>© ${new Date().getFullYear()} Labsupport GmbH &amp; Co KG<a class="fuss__hinweis" href="datenschutz.html">${t.ohneCookies}</a></span>
     <span class="mono">${t.leiste}</span>
   </div>
 </footer>`;
@@ -233,7 +255,7 @@ function seite(sprache, ziel, hatAndere, { titel, beschreibung, bereich }, inhal
 <title>${volltitel}</title>
 <meta name="description" content="${beschreibung ?? ""}">
 <meta name="theme-color" content="#120b33">
-<meta name="robots" content="noindex, nofollow">${alternativen}
+${LIVE ? "" : '<meta name="robots" content="noindex, nofollow">\n'}${alternativen.trimStart()}
 <link rel="icon" href="${a}img/logo.png">
 <link rel="preload" href="${a}schriften/inter-latin-6.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="${a}schriften/schriften.css">
@@ -256,10 +278,15 @@ ${bereich === "kontakt" ? "" : handyleiste(sprache)}
 rmSync(ZIEL, { recursive: true, force: true });
 mkdirSync(join(ZIEL, "en"), { recursive: true });
 cpSync(join(WURZEL, "assets"), join(ZIEL, "assets"), { recursive: true });
-// Solange die Seite eine Vorschau ist, bleibt sie aus dem Suchindex –
-// sonst stünde sie neben labsupport.at in Google. Zum Freischalten löschen.
-cpSync(join(WURZEL, "vercel.json"), join(ZIEL, "vercel.json"));
-writeFileSync(join(ZIEL, "robots.txt"), "User-agent: *\nDisallow: /\n");
+if (LIVE) {
+  // www.labsupport.at läuft auf IIS (Plesk): web.config für HTTPS, Startseite und Schriften
+  cpSync(join(WURZEL, "web.config"), join(ZIEL, "web.config"));
+  writeFileSync(join(ZIEL, "robots.txt"), "User-agent: *\nAllow: /\n");
+} else {
+  // Die Vorschau bleibt aus dem Suchindex, sonst stünde sie neben labsupport.at in Google
+  cpSync(join(WURZEL, "vercel.json"), join(ZIEL, "vercel.json"));
+  writeFileSync(join(ZIEL, "robots.txt"), "User-agent: *\nDisallow: /\n");
+}
 
 const QUELLEN = { de: join(WURZEL, "seiten"), en: join(WURZEL, "seiten", "en") };
 const ANDERE = { de: "en", en: "de" };
@@ -271,7 +298,9 @@ for (const sprache of ["de", "en"]) {
     const hatAndere = existsSync(join(QUELLEN[ANDERE[sprache]], datei));
     const ziel = sprachverweise(sprache, datei, hatAndere);
     const { daten, inhalt } = kopfdaten(readFileSync(join(QUELLEN[sprache], datei), "utf8"));
-    let text = inhalt.replace("{{bereiche}}", bereichsuebersicht(sprache));
+    let text = inhalt
+      .replace("{{bereiche}}", bereichsuebersicht(sprache))
+      .replace("{{hosting}}", HOSTING[LIVE ? "live" : "vorschau"][sprache]);
     // Die englischen Seiten liegen eine Ebene tiefer
     if (sprache === "en") text = text.replace(/(src|href)="assets\//g, '$1="../assets/');
     const pfad = sprache === "en" ? join(ZIEL, "en", datei) : join(ZIEL, datei);
