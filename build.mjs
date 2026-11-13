@@ -86,7 +86,7 @@ const FUSS = `
         <span class="marke__name">Lab<b>Support</b></span>
       </a>
       <p>Technische Lösungen für Labor, Industrie &amp; Produktion.</p>
-      <p class="fuss__leitsatz">Seit 2012. Österreich &amp; Europa. Persönlich.</p>
+      <p class="fuss__leitsatz">Lösungen für Labor &amp; GMP<br>Geräte · Service/Wartung · Qualifizierung/CSV</p>
     </div>
     <div>
       <h2 class="fuss__titel">Lösungen</h2>
